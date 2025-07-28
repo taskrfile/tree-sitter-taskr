@@ -1,3 +1,5 @@
+testfile
+
 # Rust artifacts
 target/
 Cargo.lock

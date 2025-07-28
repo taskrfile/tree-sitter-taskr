@@ -1,7 +1,0 @@
-default env test:
-  file = .env
-
-task test:
-  run  = echo hi
-  desc = says hi
-  alias = h, hello
