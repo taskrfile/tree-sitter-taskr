@@ -9,6 +9,9 @@
       "file-types": [
         "taskrfile"
       ],
+      "highlights": [
+        "queries/highlights.scm"
+      ],
       "injection-regex": "^taskr$",
       "class-name": "TreeSitterTaskr"
     }

@@ -22,11 +22,11 @@ module.exports = grammar({
       "task",
       $.identifier,
       ":",
-      repeat($.task_attribute)
+      $.run,
+      repeat($.optional_task_attribute)
     ),
 
-    task_attribute: $ => choice(
-      $.run,
+    optional_task_attribute: $ => choice(
       $.desc,
       $.alias,
       $.needs
