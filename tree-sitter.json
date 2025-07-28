@@ -1,0 +1,38 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "taskr",
+      "camelcase": "Taskr",
+      "title": "taskr",
+      "scope": "source.taskr",
+      "file-types": [
+        "taskrfile"
+      ],
+      "injection-regex": "^taskr$",
+      "class-name": "TreeSitterTaskr"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Treesitter parser for taskrfiles",
+    "authors": [
+      {
+        "name": "Arne Van Looveren"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/arne-vl/tree-sitter-taskr"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}

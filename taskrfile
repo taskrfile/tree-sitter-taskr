@@ -1,0 +1,5 @@
+task generate:
+  run = ./node_modules/tree-sitter-cli/tree-sitter generate
+
+task test:
+  run = ./node_modules/tree-sitter-cli/tree-sitter parse testfile
