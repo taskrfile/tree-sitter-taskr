@@ -1,7 +1,9 @@
-(kw_env) @keyword
 (kw_default_env) @keyword
-(kw_task) @keyword
+(kw_env) @keyword
+(file_key) @property
 
-(required_env_key) @property
-(required_task_key) @property
-(optional_task_key) @property
+(kw_task) @keyword
+(run_key) @property
+(desc_key) @property
+(alias_key) @property
+(needs_key) @property

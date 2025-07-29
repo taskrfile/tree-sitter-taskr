@@ -13,40 +13,118 @@ module.exports = grammar({
   rules: {
     source_file: $ => repeat($._definition),
 
+    // HEADERS
     _definition: $ => choice(
-      $.env_definition,
-      $.task_definition
+      $._env_definition,
+      $.task
     ),
 
-    task_definition: $ => seq(
+    // ENVIRONMENT
+    _env_definition: $ => choice(
+      $.env,
+      $.default_env
+    ),
+
+    // -- NORMAL ENVIRONMENT
+    kw_env: $ => "env",
+    env: $ => seq(
+      $.kw_env,
+      $.identifier,
+      $._colon,
+      $.file_definition
+    ),
+
+    // -- DEFAULT ENVIRONMENT
+    kw_default_env: $ => "default env",
+    default_env: $ => seq(
+      $.kw_default_env,
+      $.identifier,
+      $._colon,
+      $.file_definition
+    ),
+
+    // -- FILE KEY-VALUE
+    file_key: $ => "file",
+    filename: $ => /[\.a-z]+/,
+    file_definition: $ => seq(
+      $._indent,
+      $.file_key,
+      $._space,
+      $._equals,
+      $._space,
+      $.filename
+    ),
+
+    // TASKS
+    kw_task: $ => "task",
+    task: $ => seq(
       $.kw_task,
       $.identifier,
-      ":",
+      $._colon,
       repeat1(
         choice(
-          $.required_task_attribute,
-          $.optional_task_attribute
+          $.run_definition,
+          $.desc_definition,
+          $.needs_definition,
+          $.alias_definition
         )
       )
     ),
 
-    required_task_attribute: $ => seq(
-      "  ",
-      $.required_task_key,
-      "=",
-      " ",
-      $.anything
+    // -- REQUIRED RUN KEY-VALUE
+    command: $ => /.+/,
+    run_key: $ => "run",
+    run_definition: $ => seq(
+      $._indent,
+      $.run_key,
+      $._space,
+      $._equals,
+      $._space,
+      $.command
     ),
 
-    optional_task_attribute: $ => seq(
-      "  ",
-      $.optional_task_key,
-      "=",
-      " ",
-      $.anything
+    // -- OPTIONAL DESC KEY-VALUE
+    desc_key: $ => "desc",
+    _text: $ => /.+/,
+    desc_definition: $ => seq(
+      $._indent,
+      $.desc_key,
+      $._space,
+      $._equals,
+      $._space,
+      $._text
     ),
 
-    list: $ => seq(
+    // -- OPTIONAL ALIAS KEY-VALUE
+    alias_key: $ => "alias",
+    alias_definition: $ => seq(
+      $._indent,
+      $.alias_key,
+      $._space,
+      $._equals,
+      $._space,
+      $._list
+    ),
+
+    // -- OPTIONAL NEEDS KEY-VALUE
+    needs_key: $ => "needs",
+    needs_definition: $ => seq(
+      $._indent,
+      $.needs_key,
+      $._space,
+      $._equals,
+      $._space,
+      $._list
+    ),
+
+    // GENERAL
+    identifier: $ => /[a-z]+/,
+    _colon: $ => ":",
+    _equals: $ => "=",
+    _indent: $ => "  ",
+    _space: $ => " ",
+
+    _list: $ => seq(
       $.identifier,
       repeat(
         seq(
@@ -55,52 +133,5 @@ module.exports = grammar({
         )
       )
     ),
-
-    env_definition: $ => choice(
-      $.env,
-      $.default_env
-    ),
-
-    env: $ => seq(
-      $.kw_env,
-      $.identifier,
-      ":",
-      $.file_definition
-    ),
-
-    default_env: $ => seq(
-      $.kw_default_env,
-      $.identifier,
-      ":",
-      $.file_definition
-    ),
-
-    file_definition: $ => seq(
-      "  ",
-      $.required_env_key,
-      "=",
-      " ",
-      $.filename
-    ),
-
-    identifier: $ => /[a-z]+/,
-
-    filename: $ => /[\.a-z]+/,
-
-    anything: $ => /.+/,
-
-    kw_task: $ => /task/,
-    kw_env: $ => /env/,
-    kw_default_env: $ => /default env/,
-
-    required_task_key: $ => /run/,
-
-    optional_task_key: $ => choice(
-      "desc",
-      "needs",
-      "alias"
-    ),
-
-    required_env_key: $ => /file/
   }
 });

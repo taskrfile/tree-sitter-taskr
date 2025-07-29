@@ -1,6 +1,9 @@
 env dev:
   file = test.env
 
+task clear:
+  run = clear
+
 task generate:
   desc = generate parser
   run  = tree-sitter generate
@@ -9,11 +12,12 @@ task test:
   desc  = tests the parser
   run   = tree-sitter parse taskrfile
   alias = t
-  needs = generate
+  needs = clear, generate
 
 task highlight:
   run   = tree-sitter highlight taskrfile
   alias = h
+  needs = generate
 
 task build:
   run   = tree-sitter build
