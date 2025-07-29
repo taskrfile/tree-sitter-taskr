@@ -85,14 +85,14 @@ module.exports = grammar({
 
     // -- OPTIONAL DESC KEY-VALUE
     desc_key: $ => "desc",
-    _text: $ => /.+/,
+    text: $ => /.+/,
     desc_definition: $ => seq(
       $._indent,
       $.desc_key,
       $._space,
       $._equals,
       $._space,
-      $._text
+      $.text
     ),
 
     // -- OPTIONAL ALIAS KEY-VALUE
