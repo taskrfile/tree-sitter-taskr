@@ -1,20 +1,5 @@
 [
   {
-    "type": "alias",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "list",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "default_env",
     "named": true,
     "fields": {},
@@ -29,20 +14,9 @@
         {
           "type": "identifier",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "desc",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
+        },
         {
-          "type": "anything",
+          "type": "kw_default_env",
           "named": true
         }
       ]
@@ -62,6 +36,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_env",
           "named": true
         }
       ]
@@ -91,18 +69,22 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "filename",
+          "named": true
+        },
+        {
+          "type": "required_env_key",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "list",
+    "type": "optional_task_attribute",
     "named": true,
     "fields": {},
     "children": {
@@ -110,37 +92,35 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "anything",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "needs",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
+        },
         {
-          "type": "list",
+          "type": "optional_task_key",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "run",
+    "type": "optional_task_key",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "required_task_attribute",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "anything",
+          "named": true
+        },
+        {
+          "type": "required_task_key",
           "named": true
         }
       ]
@@ -167,33 +147,6 @@
     }
   },
   {
-    "type": "task_attribute",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "alias",
-          "named": true
-        },
-        {
-          "type": "desc",
-          "named": true
-        },
-        {
-          "type": "needs",
-          "named": true
-        },
-        {
-          "type": "run",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "task_definition",
     "named": true,
     "fields": {},
@@ -206,18 +159,26 @@
           "named": true
         },
         {
-          "type": "task_attribute",
+          "type": "kw_task",
+          "named": true
+        },
+        {
+          "type": "optional_task_attribute",
+          "named": true
+        },
+        {
+          "type": "required_task_attribute",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "  ",
+    "type": " ",
     "named": false
   },
   {
-    "type": ",",
+    "type": "  ",
     "named": false
   },
   {
@@ -237,19 +198,7 @@
     "named": true
   },
   {
-    "type": "default env",
-    "named": false
-  },
-  {
     "type": "desc",
-    "named": false
-  },
-  {
-    "type": "env",
-    "named": false
-  },
-  {
-    "type": "file",
     "named": false
   },
   {
@@ -261,15 +210,27 @@
     "named": true
   },
   {
+    "type": "kw_default_env",
+    "named": true
+  },
+  {
+    "type": "kw_env",
+    "named": true
+  },
+  {
+    "type": "kw_task",
+    "named": true
+  },
+  {
     "type": "needs",
     "named": false
   },
   {
-    "type": "run",
-    "named": false
+    "type": "required_env_key",
+    "named": true
   },
   {
-    "type": "task",
-    "named": false
+    "type": "required_task_key",
+    "named": true
   }
 ]

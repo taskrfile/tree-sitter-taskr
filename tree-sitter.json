@@ -10,7 +10,7 @@
         "taskrfile"
       ],
       "highlights": [
-        "queries/highlights.scm"
+        "queries/taskrfile/highlights.scm"
       ],
       "injection-regex": "^taskr$",
       "class-name": "TreeSitterTaskr"

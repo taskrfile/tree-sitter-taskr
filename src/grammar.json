@@ -26,8 +26,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "task"
+          "type": "SYMBOL",
+          "name": "kw_task"
         },
         {
           "type": "SYMBOL",
@@ -38,36 +38,24 @@
           "value": ":"
         },
         {
-          "type": "REPEAT",
+          "type": "REPEAT1",
           "content": {
-            "type": "SYMBOL",
-            "name": "task_attribute"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "required_task_attribute"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "optional_task_attribute"
+              }
+            ]
           }
         }
       ]
     },
-    "task_attribute": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "run"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "desc"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "alias"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "needs"
-        }
-      ]
-    },
-    "run": {
+    "required_task_attribute": {
       "type": "SEQ",
       "members": [
         {
@@ -75,12 +63,16 @@
           "value": "  "
         },
         {
-          "type": "STRING",
-          "value": "run"
+          "type": "SYMBOL",
+          "name": "required_task_key"
         },
         {
           "type": "STRING",
           "value": "="
+        },
+        {
+          "type": "STRING",
+          "value": " "
         },
         {
           "type": "SYMBOL",
@@ -88,7 +80,7 @@
         }
       ]
     },
-    "desc": {
+    "optional_task_attribute": {
       "type": "SEQ",
       "members": [
         {
@@ -96,58 +88,20 @@
           "value": "  "
         },
         {
-          "type": "STRING",
-          "value": "desc"
+          "type": "SYMBOL",
+          "name": "optional_task_key"
         },
         {
           "type": "STRING",
           "value": "="
+        },
+        {
+          "type": "STRING",
+          "value": " "
         },
         {
           "type": "SYMBOL",
           "name": "anything"
-        }
-      ]
-    },
-    "alias": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "  "
-        },
-        {
-          "type": "STRING",
-          "value": "alias"
-        },
-        {
-          "type": "STRING",
-          "value": "="
-        },
-        {
-          "type": "SYMBOL",
-          "name": "list"
-        }
-      ]
-    },
-    "needs": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "  "
-        },
-        {
-          "type": "STRING",
-          "value": "needs"
-        },
-        {
-          "type": "STRING",
-          "value": "="
-        },
-        {
-          "type": "SYMBOL",
-          "name": "list"
         }
       ]
     },
@@ -193,8 +147,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "env"
+          "type": "SYMBOL",
+          "name": "kw_env"
         },
         {
           "type": "SYMBOL",
@@ -214,8 +168,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "default env"
+          "type": "SYMBOL",
+          "name": "kw_default_env"
         },
         {
           "type": "SYMBOL",
@@ -239,12 +193,16 @@
           "value": "  "
         },
         {
-          "type": "STRING",
-          "value": "file"
+          "type": "SYMBOL",
+          "name": "required_env_key"
         },
         {
           "type": "STRING",
           "value": "="
+        },
+        {
+          "type": "STRING",
+          "value": " "
         },
         {
           "type": "SYMBOL",
@@ -263,6 +221,43 @@
     "anything": {
       "type": "PATTERN",
       "value": ".+"
+    },
+    "kw_task": {
+      "type": "PATTERN",
+      "value": "task"
+    },
+    "kw_env": {
+      "type": "PATTERN",
+      "value": "env"
+    },
+    "kw_default_env": {
+      "type": "PATTERN",
+      "value": "default env"
+    },
+    "required_task_key": {
+      "type": "PATTERN",
+      "value": "run"
+    },
+    "optional_task_key": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "desc"
+        },
+        {
+          "type": "STRING",
+          "value": "needs"
+        },
+        {
+          "type": "STRING",
+          "value": "alias"
+        }
+      ]
+    },
+    "required_env_key": {
+      "type": "PATTERN",
+      "value": "file"
     }
   },
   "extras": [

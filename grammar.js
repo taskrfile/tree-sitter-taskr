@@ -19,45 +19,31 @@ module.exports = grammar({
     ),
 
     task_definition: $ => seq(
-      "task",
+      $.kw_task,
       $.identifier,
       ":",
-      $.run,
-      repeat($.optional_task_attribute)
+      repeat1(
+        choice(
+          $.required_task_attribute,
+          $.optional_task_attribute
+        )
+      )
     ),
 
-    optional_task_attribute: $ => choice(
-      $.desc,
-      $.alias,
-      $.needs
-    ),
-
-    run: $ => seq(
+    required_task_attribute: $ => seq(
       "  ",
-      "run",
+      $.required_task_key,
       "=",
+      " ",
       $.anything
     ),
 
-    desc: $ => seq(
+    optional_task_attribute: $ => seq(
       "  ",
-      "desc",
+      $.optional_task_key,
       "=",
+      " ",
       $.anything
-    ),
-
-    alias: $ => seq(
-      "  ",
-      "alias",
-      "=",
-      $.list
-    ),
-
-    needs: $ => seq(
-      "  ",
-      "needs",
-      "=",
-      $.list
     ),
 
     list: $ => seq(
@@ -76,14 +62,14 @@ module.exports = grammar({
     ),
 
     env: $ => seq(
-      "env",
+      $.kw_env,
       $.identifier,
       ":",
       $.file_definition
     ),
 
     default_env: $ => seq(
-      "default env",
+      $.kw_default_env,
       $.identifier,
       ":",
       $.file_definition
@@ -91,8 +77,9 @@ module.exports = grammar({
 
     file_definition: $ => seq(
       "  ",
-      "file",
+      $.required_env_key,
       "=",
+      " ",
       $.filename
     ),
 
@@ -100,6 +87,20 @@ module.exports = grammar({
 
     filename: $ => /[\.a-z]+/,
 
-    anything: $ => /.+/
+    anything: $ => /.+/,
+
+    kw_task: $ => /task/,
+    kw_env: $ => /env/,
+    kw_default_env: $ => /default env/,
+
+    required_task_key: $ => /run/,
+
+    optional_task_key: $ => choice(
+      "desc",
+      "needs",
+      "alias"
+    ),
+
+    required_env_key: $ => /file/
   }
 });
