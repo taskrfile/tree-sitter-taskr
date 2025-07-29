@@ -208,7 +208,7 @@
       "type": "STRING",
       "value": "desc"
     },
-    "_text": {
+    "text": {
       "type": "PATTERN",
       "value": ".+"
     },
@@ -237,7 +237,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_text"
+          "name": "text"
         }
       ]
     },
@@ -270,7 +270,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_list"
+          "name": "list"
         }
       ]
     },
@@ -303,7 +303,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_list"
+          "name": "list"
         }
       ]
     },
@@ -327,7 +327,7 @@
       "type": "STRING",
       "value": " "
     },
-    "_list": {
+    "list": {
       "type": "SEQ",
       "members": [
         {

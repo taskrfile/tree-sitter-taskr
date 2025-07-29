@@ -103,7 +103,7 @@ module.exports = grammar({
       $._space,
       $._equals,
       $._space,
-      $._list
+      $.list
     ),
 
     // -- OPTIONAL NEEDS KEY-VALUE
@@ -114,7 +114,7 @@ module.exports = grammar({
       $._space,
       $._equals,
       $._space,
-      $._list
+      $.list
     ),
 
     // GENERAL
@@ -124,7 +124,7 @@ module.exports = grammar({
     _indent: $ => "  ",
     _space: $ => " ",
 
-    _list: $ => seq(
+    list: $ => seq(
       $.identifier,
       repeat(
         seq(
