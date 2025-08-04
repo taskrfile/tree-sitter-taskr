@@ -1,5 +1,5 @@
 # tree-sitter-taskr
-This is the tree-sitter parser for taskr. Currently only provides highlighting.
+This is the tree-sitter parser for [taskr](https://github.com/arne-vl/taskr). Currently only provides highlighting.
 
 ## Manual configuration
 1. Put this snippet in your nvim-treesiter configuration.
