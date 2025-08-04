@@ -1,0 +1,37 @@
+======================
+Environment definition
+======================
+
+env dev:
+  file = dev.env
+
+---
+
+(source_file
+  (env
+    (kw_env)
+    (identifier)
+    (file_definition
+      (file_key)
+      (filename))
+  ))
+
+
+==============================
+Default environment definition
+==============================
+
+default env dev:
+  file = dev.env
+
+---
+
+(source_file
+  (default_env
+    (kw_default)
+    (kw_env)
+    (identifier)
+    (file_definition
+      (file_key)
+      (filename))
+  ))
