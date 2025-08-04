@@ -60,16 +60,20 @@
         }
       ]
     },
-    "kw_default_env": {
+    "kw_default": {
       "type": "STRING",
-      "value": "default env"
+      "value": "default"
     },
     "default_env": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "kw_default_env"
+          "name": "kw_default"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "kw_env"
         },
         {
           "type": "SYMBOL",
@@ -106,15 +110,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_space"
-        },
-        {
-          "type": "SYMBOL",
           "name": "_equals"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_space"
         },
         {
           "type": "SYMBOL",
@@ -188,15 +184,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_space"
-        },
-        {
-          "type": "SYMBOL",
           "name": "_equals"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_space"
         },
         {
           "type": "SYMBOL",
@@ -225,15 +213,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_space"
-        },
-        {
-          "type": "SYMBOL",
           "name": "_equals"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_space"
         },
         {
           "type": "SYMBOL",
@@ -258,15 +238,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_space"
-        },
-        {
-          "type": "SYMBOL",
           "name": "_equals"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_space"
         },
         {
           "type": "SYMBOL",
@@ -291,15 +263,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_space"
-        },
-        {
-          "type": "SYMBOL",
           "name": "_equals"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_space"
         },
         {
           "type": "SYMBOL",
@@ -322,10 +286,6 @@
     "_indent": {
       "type": "STRING",
       "value": "  "
-    },
-    "_space": {
-      "type": "STRING",
-      "value": " "
     },
     "list": {
       "type": "SEQ",
@@ -353,17 +313,21 @@
       ]
     },
     "comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "//"
-        },
-        {
-          "type": "PATTERN",
-          "value": ".*"
-        }
-      ]
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "//"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
+          }
+        ]
+      }
     }
   },
   "extras": [

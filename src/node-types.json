@@ -41,7 +41,11 @@
           "named": true
         },
         {
-          "type": "kw_default_env",
+          "type": "kw_default",
+          "named": true
+        },
+        {
+          "type": "kw_env",
           "named": true
         }
       ]
@@ -221,10 +225,6 @@
     }
   },
   {
-    "type": " ",
-    "named": false
-  },
-  {
     "type": "  ",
     "named": false
   },
@@ -269,7 +269,7 @@
     "named": true
   },
   {
-    "type": "kw_default_env",
+    "type": "kw_default",
     "named": true
   },
   {

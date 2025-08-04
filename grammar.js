@@ -37,9 +37,10 @@ module.exports = grammar({
     ),
 
     // -- DEFAULT ENVIRONMENT
-    kw_default_env: $ => "default env",
+    kw_default: $ => "default",
     default_env: $ => seq(
-      $.kw_default_env,
+      $.kw_default,
+      $.kw_env,
       $.identifier,
       $._colon,
       $.file_definition
@@ -51,9 +52,7 @@ module.exports = grammar({
     file_definition: $ => seq(
       $._indent,
       $.file_key,
-      $._space,
       $._equals,
-      $._space,
       $.filename
     ),
 
@@ -79,9 +78,7 @@ module.exports = grammar({
     run_definition: $ => seq(
       $._indent,
       $.run_key,
-      $._space,
       $._equals,
-      $._space,
       $.command
     ),
 
@@ -91,9 +88,7 @@ module.exports = grammar({
     desc_definition: $ => seq(
       $._indent,
       $.desc_key,
-      $._space,
       $._equals,
-      $._space,
       $.text
     ),
 
@@ -102,9 +97,7 @@ module.exports = grammar({
     alias_definition: $ => seq(
       $._indent,
       $.alias_key,
-      $._space,
       $._equals,
-      $._space,
       $.list
     ),
 
@@ -113,9 +106,7 @@ module.exports = grammar({
     needs_definition: $ => seq(
       $._indent,
       $.needs_key,
-      $._space,
       $._equals,
-      $._space,
       $.list
     ),
 
@@ -124,7 +115,6 @@ module.exports = grammar({
     _colon: $ => ":",
     _equals: $ => "=",
     _indent: $ => "  ",
-    _space: $ => " ",
 
     list: $ => seq(
       $.identifier,
@@ -136,6 +126,6 @@ module.exports = grammar({
       )
     ),
 
-    comment: $ =>seq("//", /.*/),
+    comment: $ => prec(2, seq("//", /.*/)),
   }
 });

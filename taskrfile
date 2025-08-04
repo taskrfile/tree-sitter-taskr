@@ -1,4 +1,4 @@
-env dev:
+default env dev:
   // noice comment
   file = test.env
 
