@@ -73,7 +73,7 @@ module.exports = grammar({
     ),
 
     // -- REQUIRED RUN KEY-VALUE
-    command: $ => /[^\n]+/,
+    command: $ => prec.right(/[^\/\/\n]+/),
     run_key: $ => "run",
     run_definition: $ => seq(
       $._indent,
@@ -84,7 +84,7 @@ module.exports = grammar({
 
     // -- OPTIONAL DESC KEY-VALUE
     desc_key: $ => "desc",
-    text: $ => /.+/,
+    text: $ => prec.right(/[^\/\/\n]+/),
     desc_definition: $ => seq(
       $._indent,
       $.desc_key,
@@ -126,6 +126,6 @@ module.exports = grammar({
       )
     ),
 
-    comment: $ => prec(2, seq("//", /.*/)),
+    comment: $ => token(seq('//', /.*/)),
   }
 });

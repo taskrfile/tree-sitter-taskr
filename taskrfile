@@ -8,8 +8,8 @@ task clear:
   alias = c
 
 task generate:
-  desc  = generate parser
-  run   = tree-sitter generate
+  desc  = generate parser // TODO: highlight
+  run   = tree-sitter generate // runs the tree-sitter cli
   alias = g
 
 task test:

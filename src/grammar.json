@@ -164,8 +164,12 @@
       ]
     },
     "command": {
-      "type": "PATTERN",
-      "value": "[^\\n]+"
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\/\\/\\n]+"
+      }
     },
     "run_key": {
       "type": "STRING",
@@ -197,8 +201,12 @@
       "value": "desc"
     },
     "text": {
-      "type": "PATTERN",
-      "value": ".+"
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\/\\/\\n]+"
+      }
     },
     "desc_definition": {
       "type": "SEQ",
@@ -313,8 +321,7 @@
       ]
     },
     "comment": {
-      "type": "PREC",
-      "value": 2,
+      "type": "TOKEN",
       "content": {
         "type": "SEQ",
         "members": [
