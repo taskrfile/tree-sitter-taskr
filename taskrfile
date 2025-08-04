@@ -2,7 +2,7 @@ env dev:
   file = test.env
 
 task clear:
-  run   = clear
+  run   = clear // clears the screen
   alias = c
 
 task generate:

@@ -72,7 +72,7 @@ module.exports = grammar({
     ),
 
     // -- REQUIRED RUN KEY-VALUE
-    command: $ => /.+/,
+    command: $ => token(prec(1, /[^\n]+/)),
     run_key: $ => "run",
     run_definition: $ => seq(
       $._indent,
@@ -133,5 +133,7 @@ module.exports = grammar({
         )
       )
     ),
+
+    comment: $ => token(prec(0, seq("//", /.*/))),
   }
 });

@@ -19,11 +19,6 @@
     }
   },
   {
-    "type": "command",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "default_env",
     "named": true,
     "fields": {},
@@ -220,11 +215,6 @@
     }
   },
   {
-    "type": "text",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": " ",
     "named": false
   },
@@ -246,6 +236,10 @@
   },
   {
     "type": "alias_key",
+    "named": true
+  },
+  {
+    "type": "command",
     "named": true
   },
   {
@@ -282,6 +276,10 @@
   },
   {
     "type": "run_key",
+    "named": true
+  },
+  {
+    "type": "text",
     "named": true
   }
 ]
