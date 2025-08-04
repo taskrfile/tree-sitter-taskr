@@ -48,7 +48,7 @@ module.exports = grammar({
 
     // -- FILE KEY-VALUE
     file_key: $ => "file",
-    filename: $ => /[\.a-z]+/,
+    filename: $ => /[\.a-zA-Z\-_]+/,
     file_definition: $ => seq(
       $._indent,
       $.file_key,

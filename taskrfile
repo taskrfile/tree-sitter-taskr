@@ -1,6 +1,6 @@
 default env dev:
   // noice comment
-  file = test.env
+  file = file_test.env
 
 // define some tasks
 task clear:

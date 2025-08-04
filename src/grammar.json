@@ -95,7 +95,7 @@
     },
     "filename": {
       "type": "PATTERN",
-      "value": "[\\.a-z]+"
+      "value": "[\\.a-zA-Z\\-_]+"
     },
     "file_definition": {
       "type": "SEQ",
