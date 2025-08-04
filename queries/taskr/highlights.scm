@@ -18,4 +18,4 @@
 (text) @string
 (command) @function
 (identifier) @variable
-
+(comment) @comment

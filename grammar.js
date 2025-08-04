@@ -10,6 +10,8 @@
 module.exports = grammar({
   name: "taskr",
 
+  extras: $ => [$.comment, /\s/],
+
   rules: {
     source_file: $ => repeat($._definition),
 
@@ -72,7 +74,7 @@ module.exports = grammar({
     ),
 
     // -- REQUIRED RUN KEY-VALUE
-    command: $ => token(prec(1, /[^\n]+/)),
+    command: $ => /[^\n]+/,
     run_key: $ => "run",
     run_definition: $ => seq(
       $._indent,
@@ -134,6 +136,6 @@ module.exports = grammar({
       )
     ),
 
-    comment: $ => token(prec(0, seq("//", /.*/))),
+    comment: $ =>seq("//", /.*/),
   }
 });

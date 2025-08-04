@@ -1,6 +1,8 @@
 env dev:
+  // noice comment
   file = test.env
 
+// define some tasks
 task clear:
   run   = clear // clears the screen
   alias = c
