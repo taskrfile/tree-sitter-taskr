@@ -16,7 +16,6 @@ env dev:
       (filename))
   ))
 
-
 ==============================
 Default environment definition
 ==============================
@@ -35,3 +34,17 @@ default env dev:
       (file_key)
       (filename))
   ))
+
+========================
+Environment without file
+========================
+
+env dev:
+
+---
+
+(source_file
+  (ERROR
+    (kw_env)
+    (identifier)))
+

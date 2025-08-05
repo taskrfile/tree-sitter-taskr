@@ -45,3 +45,17 @@ task build:
       (needs_key)
       (list
         (identifier)))))
+
+=================
+Task without keys
+=================
+
+task build:
+
+---
+
+(source_file
+  (ERROR
+    (kw_task)
+    (identifier)))
+
