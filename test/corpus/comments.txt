@@ -1,0 +1,68 @@
+==============
+Single comment
+==============
+
+// This is a comment
+
+---
+
+(source_file
+  (comment))
+
+=====================
+Inline header comment
+=====================
+
+task build: // task that builds tree sitter
+  run = tree-sitter build
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (comment)
+    (run_definition
+      (run_key)
+      (command))))
+
+==================
+Inline key comment
+==================
+
+task build:
+  run = tree-sitter build // build command for tree sitter
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (run_definition
+      (run_key)
+      (command)))
+    (comment))
+
+================================
+Inline key comment multiple keys
+================================
+
+task build:
+  run  = tree-sitter build // build command for tree sitter
+  desc = build tree sitter
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (run_definition
+      (run_key)
+      (command))
+    (comment)
+    (desc_definition
+      (desc_key)
+      (text))))
