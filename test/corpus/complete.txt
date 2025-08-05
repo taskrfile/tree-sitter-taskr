@@ -15,7 +15,7 @@ task build:
 
 task release:
   desc = releases the project
-  run = bash release.sh
+  run = ./release.sh // ./ because i fixed that
   alias = r, rel
   needs = b
 
@@ -58,6 +58,7 @@ task release:
     (run_definition
       (run_key)
       (command))
+    (comment)
     (alias_definition
       (alias_key)
       (list
