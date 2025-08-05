@@ -4,7 +4,7 @@
 "," @punctuation.delimiter
 ":" @keyword.conditional.ternary
 
-(kw_default) @constant
+(kw_default) @keyword
 (kw_env) @keyword
 (file_key) @property
 (filename) @string.special.path

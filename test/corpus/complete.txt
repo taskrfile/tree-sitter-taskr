@@ -1,0 +1,69 @@
+==================
+Complete file test
+==================
+
+default env dev:
+  file = .env
+
+env prod:
+  file = prod.env
+
+task build:
+  desc = builds the project
+  run = bash build.sh // bash because ./ does not parse correctly
+  alias = b
+
+task release:
+  desc = releases the project
+  run = bash release.sh
+  alias = r, rel
+  needs = b
+
+---
+
+(source_file
+  (default_env
+    (kw_default)
+    (kw_env)
+    (identifier)
+    (file_definition
+      (file_key)
+      (filename)))
+  (env
+    (kw_env)
+    (identifier)
+    (file_definition
+      (file_key)
+      (filename)))
+  (task
+    (kw_task)
+    (identifier)
+    (desc_definition
+      (desc_key)
+      (text))
+    (run_definition
+      (run_key)
+      (command))
+    (comment)
+    (alias_definition
+      (alias_key)
+      (list
+        (identifier))))
+  (task
+    (kw_task)
+    (identifier)
+    (desc_definition
+      (desc_key)
+      (text))
+    (run_definition
+      (run_key)
+      (command))
+    (alias_definition
+      (alias_key)
+      (list
+        (identifier)
+        (identifier)))
+    (needs_definition
+      (needs_key)
+      (list
+        (identifier)))))

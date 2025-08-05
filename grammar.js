@@ -6,6 +6,54 @@
 
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
+function generatePermutations($) {
+  const required = $.run_definition;
+  const optionalNames = ['desc_definition', 'needs_definition', 'alias_definition'];
+
+  // Generate power set (all combinations) of optionals
+  function combinations(arr) {
+    const result = [[]];
+    for (const value of arr) {
+      const copy = [...result];
+      for (const prefix of copy) {
+        result.push([...prefix, value]);
+      }
+    }
+    return result;
+  }
+
+  // Generate all permutations of an array
+  function permute(arr) {
+    if (arr.length <= 1) return [arr];
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+      const rest = permute([...arr.slice(0, i), ...arr.slice(i + 1)]);
+      for (const r of rest) {
+        result.push([arr[i], ...r]);
+      }
+    }
+    return result;
+  }
+
+  const allSequences = [];
+
+  // All combinations of optional fields (including empty)
+  const combos = combinations(optionalNames);
+
+  for (const combo of combos) {
+    const permutedOptionals = permute(combo);
+    for (const p of permutedOptionals) {
+      // Insert `required` at every position in the permutation
+      for (let i = 0; i <= p.length; i++) {
+        const names = [...p.slice(0, i), 'run_definition', ...p.slice(i)];
+        const fields = names.map(name => $[name]);
+        allSequences.push(seq(...fields));
+      }
+    }
+  }
+
+  return choice(...allSequences);
+}
 
 module.exports = grammar({
   name: "taskr",
@@ -62,13 +110,8 @@ module.exports = grammar({
       $.kw_task,
       $.identifier,
       $._colon,
-      repeat1(
-        choice(
-          $.run_definition,
-          $.desc_definition,
-          $.needs_definition,
-          $.alias_definition
-        )
+      choice(
+        generatePermutations($)
       )
     ),
 

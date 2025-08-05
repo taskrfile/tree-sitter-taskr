@@ -12,10 +12,10 @@ task generate:
   run   = tree-sitter generate // runs the tree-sitter cli
   alias = g
 
-task test:
-  desc  = tests the parser using this taskrfile
+task parse:
+  desc  = parses this file and prints the output
   run   = tree-sitter parse taskrfile
-  alias = t
+  alias = p
   needs = c, g
 
 task highlight:
@@ -26,3 +26,10 @@ task highlight:
 task build:
   run   = tree-sitter build
   alias = b
+  needs = g
+
+task test:
+  desc  = run the tests
+  run   = tree-sitter test
+  alias = t
+  needs = g, b, c
