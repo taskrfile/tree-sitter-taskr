@@ -116,7 +116,11 @@ module.exports = grammar({
     ),
 
     // -- REQUIRED RUN KEY-VALUE
-    command: $ => prec.right(/[^\/\/\n]+/),
+    command: $ => prec.right(
+      repeat1(
+        /[A-Za-z0-9_./:~+=@%*\-?!$'"`&|<>(){}\[\]\\; \t]/
+      )
+    ),
     run_key: $ => "run",
     run_definition: $ => seq(
       $._indent,
@@ -127,7 +131,11 @@ module.exports = grammar({
 
     // -- OPTIONAL DESC KEY-VALUE
     desc_key: $ => "desc",
-    text: $ => prec.right(/[^\/\/\n]+/),
+    text: $ => prec.right(
+      repeat1(
+        /[A-Za-z0-9_./:~+=@%*\-?!$'"`&|<>(){}\[\]\\; \t]/
+      )
+    ),
     desc_definition: $ => seq(
       $._indent,
       $.desc_key,

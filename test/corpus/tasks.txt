@@ -139,3 +139,21 @@ task build:
       (command
         (MISSING "command_token1")))))
 
+=======================
+Task with / and comment
+=======================
+
+task build:
+  run = ./build.sh // executes build script
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (run_definition
+      (run_key)
+      (command)))
+    (comment))
+
