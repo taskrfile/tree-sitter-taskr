@@ -83,6 +83,23 @@ task build:
     (kw_task)
     (identifier)))
 
+=========================
+Task without required key
+=========================
+
+task build:
+  desc = builds the tree sitter parser
+
+---
+
+(source_file
+  (ERROR
+    (kw_task)
+    (identifier)
+    (desc_definition
+      (desc_key)
+      (text))))
+
 ===================
 Task with empty key
 ===================

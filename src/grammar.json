@@ -138,28 +138,911 @@
           "name": "_colon"
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "run_definition"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "desc_definition"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "needs_definition"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "alias_definition"
-              }
-            ]
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "alias_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "needs_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "desc_definition"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "run_definition"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },

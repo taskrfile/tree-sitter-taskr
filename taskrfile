@@ -18,11 +18,6 @@ task parse:
   alias = p
   needs = c, g
 
-task test:
-  desc  = run the tests
-  run   = tree-sitter test
-  alias = t
-
 task highlight:
   run   = tree-sitter highlight taskrfile
   alias = h
@@ -31,3 +26,9 @@ task highlight:
 task build:
   run   = tree-sitter build
   alias = b
+
+task test:
+  desc  = run the tests
+  run   = tree-sitter test
+  alias = t
+  needs = g, b, c
