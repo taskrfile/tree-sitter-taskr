@@ -1,0 +1,47 @@
+============
+Minimal task
+============
+
+task build:
+  run = tree-sitter build
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (run_definition
+      (run_key)
+      (command))))
+
+=========
+Full task
+=========
+
+task build:
+  desc  = builds the tree-sitter
+  run   = tree-sitter build
+  alias = b
+  needs = nothing
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (desc_definition
+      (desc_key)
+      (text))
+    (run_definition
+      (run_key)
+      (command))
+    (alias_definition
+      (alias_key)
+      (list
+        (identifier)))
+    (needs_definition
+      (needs_key)
+      (list
+        (identifier)))))
