@@ -48,3 +48,48 @@ env dev:
     (kw_env)
     (identifier)))
 
+=============================
+Environment with missing file
+=============================
+
+env dev:
+  file =
+
+---
+
+(source_file
+  (env
+    (kw_env)
+    (identifier)
+    (file_definition
+      (file_key)
+      (MISSING filename))))
+
+
+================================
+Multiple environment definitions
+================================
+
+default env dev:
+  file = dev.env
+
+env prod:
+  file = prod.env
+
+---
+
+(source_file
+  (default_env
+    (kw_default)
+    (kw_env)
+    (identifier)
+    (file_definition
+      (file_key)
+      (filename))
+  )
+  (env
+    (kw_env)
+    (identifier)
+    (file_definition
+      (file_key)
+      (filename))))

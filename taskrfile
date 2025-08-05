@@ -26,6 +26,7 @@ task highlight:
 task build:
   run   = tree-sitter build
   alias = b
+  needs = g
 
 task test:
   desc  = run the tests

@@ -46,6 +46,27 @@ task build:
       (list
         (identifier)))))
 
+===========================
+Task with description first
+===========================
+
+task build:
+  desc = builds tree sitter
+  run  = tree-sitter build
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (desc_definition
+      (desc_key)
+      (text))
+    (run_definition
+      (run_key)
+      (command))))
+
 ==============
 Task with list
 ==============
