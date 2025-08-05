@@ -46,6 +46,30 @@ task build:
       (list
         (identifier)))))
 
+==============
+Task with list
+==============
+
+task build:
+  run = tree-sitter build
+  alias = bld, b, bu
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (run_definition
+      (run_key)
+      (command))
+    (alias_definition
+      (alias_key)
+      (list
+        (identifier)
+        (identifier)
+        (identifier)))))
+
 =================
 Task without keys
 =================
@@ -58,4 +82,22 @@ task build:
   (ERROR
     (kw_task)
     (identifier)))
+
+===================
+Task with empty key
+===================
+
+task build:
+  run =
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (run_definition
+      (run_key)
+      (command
+        (MISSING "command_token1")))))
 
