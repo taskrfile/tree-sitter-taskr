@@ -116,27 +116,21 @@ module.exports = grammar({
     ),
 
     // -- REQUIRED RUN KEY-VALUE
-    command: $ => repeat1(
-      /[A-Za-z0-9_./:~+=@%*\-?!$'"`&|<>(){}\[\]\\; \t]/
-    ),
     run_key: $ => token("run"),
     run_definition: $ => seq(
       $._indent,
       $.run_key,
       $._equals,
-      $.command
+      alias($.anything, $.command)
     ),
 
     // -- OPTIONAL DESC KEY-VALUE
     desc_key: $ => token("desc"),
-    text: $ => repeat1(
-      /[A-Za-z0-9_./:~+=@%*\-?!$'"`&|<>(){}\[\]\\; \t]/
-    ),
     desc_definition: $ => seq(
       $._indent,
       $.desc_key,
       $._equals,
-      $.text
+      alias($.anything, $.text)
     ),
 
     // -- OPTIONAL ALIAS KEY-VALUE
@@ -174,5 +168,11 @@ module.exports = grammar({
     ),
 
     comment: $ => token(seq(token("//"), /.*/)),
+
+    anything: $ => prec.right(
+      repeat1(
+        /[A-Za-z0-9_./:~+=@%*\-?!$'"`&|<>(){}\[\]\\; \t]/
+      )
+    ),
   }
 });

@@ -1058,13 +1058,6 @@
         }
       ]
     },
-    "command": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "PATTERN",
-        "value": "[A-Za-z0-9_./:~+=@%*\\-?!$'\"`&|<>(){}\\[\\]\\\\; \\t]"
-      }
-    },
     "run_key": {
       "type": "TOKEN",
       "content": {
@@ -1088,8 +1081,13 @@
           "name": "_equals"
         },
         {
-          "type": "SYMBOL",
-          "name": "command"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "anything"
+          },
+          "named": true,
+          "value": "command"
         }
       ]
     },
@@ -1098,13 +1096,6 @@
       "content": {
         "type": "STRING",
         "value": "desc"
-      }
-    },
-    "text": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "PATTERN",
-        "value": "[A-Za-z0-9_./:~+=@%*\\-?!$'\"`&|<>(){}\\[\\]\\\\; \\t]"
       }
     },
     "desc_definition": {
@@ -1123,8 +1114,13 @@
           "name": "_equals"
         },
         {
-          "type": "SYMBOL",
-          "name": "text"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "anything"
+          },
+          "named": true,
+          "value": "text"
         }
       ]
     },
@@ -1257,6 +1253,17 @@
             "value": ".*"
           }
         ]
+      }
+    },
+    "anything": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "PATTERN",
+          "value": "[A-Za-z0-9_./:~+=@%*\\-?!$'\"`&|<>(){}\\[\\]\\\\; \\t]"
+        }
       }
     }
   },

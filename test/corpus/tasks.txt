@@ -137,7 +137,7 @@ task build:
     (run_definition
       (run_key)
       (command
-        (MISSING "command_token1")))))
+        (MISSING "anything_token1")))))
 
 =======================
 Task with / and comment
@@ -157,12 +157,34 @@ task build:
       (command)))
     (comment))
 
-=========================
-Task with task in install
-=========================
+==================================
+Task with task in install and desc
+==================================
+
+task test:
+  desc = test taskr
+  run = test taskr
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (desc_definition
+      (desc_key)
+      (text))
+    (run_definition
+      (run_key)
+      (command))))
+
+==================================
+Task with task in desc and install
+==================================
 
 task test:
   run = test taskr
+  desc = test taskr
 
 ---
 
@@ -172,4 +194,7 @@ task test:
     (identifier)
     (run_definition
       (run_key)
-      (command))))
+      (command))
+    (desc_definition
+      (desc_key)
+      (text))))
