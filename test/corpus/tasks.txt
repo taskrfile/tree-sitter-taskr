@@ -157,3 +157,19 @@ task build:
       (command)))
     (comment))
 
+=========================
+Task with task in install
+=========================
+
+task test:
+  run = test taskr
+
+---
+
+(source_file
+  (task
+    (kw_task)
+    (identifier)
+    (run_definition
+      (run_key)
+      (command))))
