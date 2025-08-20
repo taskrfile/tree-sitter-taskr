@@ -137,7 +137,7 @@ task build:
     (run_definition
       (run_key)
       (command
-        (MISSING "anything_token1")))))
+        (MISSING "_command_or_text_token1")))))
 
 =======================
 Task with / and comment

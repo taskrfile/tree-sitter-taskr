@@ -1084,7 +1084,7 @@
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "anything"
+            "name": "_command_or_text"
           },
           "named": true,
           "value": "command"
@@ -1117,7 +1117,7 @@
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "anything"
+            "name": "_command_or_text"
           },
           "named": true,
           "value": "text"
@@ -1242,27 +1242,39 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "TOKEN",
-            "content": {
-              "type": "STRING",
-              "value": "//"
-            }
+            "type": "STRING",
+            "value": "//"
           },
           {
             "type": "PATTERN",
-            "value": ".*"
+            "value": "[^\\r\\n]*"
           }
         ]
       }
     },
-    "anything": {
+    "_command_or_text": {
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
         "type": "REPEAT1",
         "content": {
-          "type": "PATTERN",
-          "value": "[A-Za-z0-9_./:~+=@%*\\-?!$'\"`&|<>(){}\\[\\]\\\\; \\t]"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "IMMEDIATE_TOKEN",
+              "content": {
+                "type": "PATTERN",
+                "value": "[^\\n\\r/]+"
+              }
+            },
+            {
+              "type": "IMMEDIATE_TOKEN",
+              "content": {
+                "type": "STRING",
+                "value": "/"
+              }
+            }
+          ]
         }
       }
     }

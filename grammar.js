@@ -121,7 +121,7 @@ module.exports = grammar({
       $._indent,
       $.run_key,
       $._equals,
-      alias($.anything, $.command)
+      alias($._command_or_text, $.command)
     ),
 
     // -- OPTIONAL DESC KEY-VALUE
@@ -130,7 +130,7 @@ module.exports = grammar({
       $._indent,
       $.desc_key,
       $._equals,
-      alias($.anything, $.text)
+      alias($._command_or_text, $.text)
     ),
 
     // -- OPTIONAL ALIAS KEY-VALUE
@@ -167,11 +167,14 @@ module.exports = grammar({
       )
     ),
 
-    comment: $ => token(seq(token("//"), /.*/)),
+    comment: $ => token(seq('//', /[^\r\n]*/)),
 
-    anything: $ => prec.right(
+    _command_or_text: $ => prec.right(
       repeat1(
-        /[A-Za-z0-9_./:~+=@%*\-?!$'"`&|<>(){}\[\]\\; \t]/
+        choice(
+          token.immediate(/[^\n\r/]+/),
+          token.immediate('/')
+        )
       )
     ),
   }
