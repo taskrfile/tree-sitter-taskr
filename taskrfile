@@ -13,7 +13,7 @@ task generate:
   alias = g
 
 task parse:
-  desc  = parses this file and prints the output
+  desc  = parses this taskrfile and prints the output
   run   = tree-sitter parse taskrfile
   alias = p
   needs = c, g
@@ -32,4 +32,4 @@ task test:
   desc  = run the tests
   run   = tree-sitter test
   alias = t
-  needs = g, b, c
+  needs = g, b

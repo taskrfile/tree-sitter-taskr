@@ -1,0 +1,5 @@
+task test:
+  run = go build taskr
+
+task test2:
+  run = ./test.sh // this is a comment

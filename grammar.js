@@ -76,7 +76,7 @@ module.exports = grammar({
     ),
 
     // -- NORMAL ENVIRONMENT
-    kw_env: $ => "env",
+    kw_env: $ => token("env"),
     env: $ => seq(
       $.kw_env,
       $.identifier,
@@ -85,7 +85,7 @@ module.exports = grammar({
     ),
 
     // -- DEFAULT ENVIRONMENT
-    kw_default: $ => "default",
+    kw_default: $ => token("default"),
     default_env: $ => seq(
       $.kw_default,
       $.kw_env,
@@ -95,8 +95,8 @@ module.exports = grammar({
     ),
 
     // -- FILE KEY-VALUE
-    file_key: $ => "file",
-    filename: $ => /[\.a-zA-Z\-_]+/,
+    file_key: $ => token("file"),
+    filename: $ => /[\.a-zA-Z0-9\-_]+/,
     file_definition: $ => seq(
       $._indent,
       $.file_key,
@@ -105,7 +105,7 @@ module.exports = grammar({
     ),
 
     // TASKS
-    kw_task: $ => "task",
+    kw_task: $ => token("task"),
     task: $ => seq(
       $.kw_task,
       $.identifier,
@@ -116,35 +116,25 @@ module.exports = grammar({
     ),
 
     // -- REQUIRED RUN KEY-VALUE
-    command: $ => prec.right(
-      repeat1(
-        /[A-Za-z0-9_./:~+=@%*\-?!$'"`&|<>(){}\[\]\\; \t]/
-      )
-    ),
-    run_key: $ => "run",
+    run_key: $ => token("run"),
     run_definition: $ => seq(
       $._indent,
       $.run_key,
       $._equals,
-      $.command
+      alias($._command_or_text, $.command)
     ),
 
     // -- OPTIONAL DESC KEY-VALUE
-    desc_key: $ => "desc",
-    text: $ => prec.right(
-      repeat1(
-        /[A-Za-z0-9_./:~+=@%*\-?!$'"`&|<>(){}\[\]\\; \t]/
-      )
-    ),
+    desc_key: $ => token("desc"),
     desc_definition: $ => seq(
       $._indent,
       $.desc_key,
       $._equals,
-      $.text
+      alias($._command_or_text, $.text)
     ),
 
     // -- OPTIONAL ALIAS KEY-VALUE
-    alias_key: $ => "alias",
+    alias_key: $ => token("alias"),
     alias_definition: $ => seq(
       $._indent,
       $.alias_key,
@@ -153,7 +143,7 @@ module.exports = grammar({
     ),
 
     // -- OPTIONAL NEEDS KEY-VALUE
-    needs_key: $ => "needs",
+    needs_key: $ => token("needs"),
     needs_definition: $ => seq(
       $._indent,
       $.needs_key,
@@ -162,21 +152,30 @@ module.exports = grammar({
     ),
 
     // GENERAL
-    identifier: $ => /[a-z]+/,
-    _colon: $ => ":",
-    _equals: $ => "=",
-    _indent: $ => "  ",
+    identifier: $ => token(/[a-z_][a-z0-9_-]*/),
+    _colon: $ => token(":"),
+    _equals: $ => token("="),
+    _indent: $ => token("  "),
 
     list: $ => seq(
       $.identifier,
       repeat(
         seq(
-          ",",
+          token(","),
           $.identifier
         )
       )
     ),
 
-    comment: $ => token(seq('//', /.*/)),
+    comment: $ => token(seq('//', /[^\r\n]*/)),
+
+    _command_or_text: $ => prec.right(
+      repeat1(
+        choice(
+          token.immediate(/[^\n\r/]+/),
+          token.immediate('/')
+        )
+      )
+    ),
   }
 });
