@@ -1,7 +1,3 @@
-default env dev:
-  // noice comment
-  file = file_test.env
-
 // define some tasks
 task clear:
   run   = clear // clears the screen
